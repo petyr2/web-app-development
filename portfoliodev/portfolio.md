@@ -15,8 +15,15 @@ From there, we will create Django project using:
 
 ```
 django-admin startproject portfolio
-                  or
+                  #or
 python3 -m django-admin startproject portfolio
 ```
 
+Then `cd` into the project, in our case is the `portfolio`, when in the project we shall create the main app using:
+
+```
+python3 manage.py startapp main
+```
+
+Now we can open a text editor and 
 
