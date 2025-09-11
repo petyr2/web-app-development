@@ -138,3 +138,26 @@ And push:
 ```
 git push -u origin main
 ```
+
+# ON THE LOGIN SECTION
+
+GitHub no longer allows using your account password for git push. Instead, you must use either:
+
+A Personal Access Token (PAT) (recommended for HTTPS URLs), or SSH keys (recommended if you use the same machine often).
+
+Use a GitHub Personal Access Token (HTTPS method)
+
+Go to GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic).
+
+Or click here when logged in: Generate token
+.
+
+Click Generate new token → choose Classic.
+
+Set a name (e.g., Kali Git).
+
+Expiration: pick a long one (e.g., 90 days or “no expiration”).
+
+Select scopes: at minimum repo.
+
+Copy the token (GitHub will only show it once).
