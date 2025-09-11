@@ -27,5 +27,15 @@ python3 manage.py startapp main
 
 Now we can open a text editor and modify the code. I will use Sublime Text.
 
+Navigate into to portfolio directory, then open the `settings.py` file and edit by adding `import os`
+
+`import os stands for import operating system.`
+
+Then move on to the section where it says `installed_apps` 
+
+
+
+
+
 
 
