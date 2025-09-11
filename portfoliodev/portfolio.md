@@ -73,10 +73,37 @@ class Project(models.Model):
 	def_str_(self):
 		return self.title
 ```
-		
+# simple description of the code above on the tag field
 
-		
+Many to many, meaning this tag can exist on many different projects, and this project can have many different tags. Now, what we do is we specify the model that we want the relationship to be with. And then we have a related name. Now the related name is the field name on this tag that will contain all of the projects. So effectively, what's going to happen is that for each of our projects, we're going to have a linkage to the tag.
 
+And for each of our tags, we're going to have a link to all of the different projects that that tag exists on. That's kind of how many too many field works. These other types of relationships and so on. 
+
+# Lastly, is the image model
+
+```python
+#image model.
+class ProjectImage(models.Model):
+	project = models.ForeignKey(
+		project, related_name="image", on_delete=models.CASCADE
+		)
+	image = models.ImageField(upload_to="project_images/")
+
+	def_str_(self):
+		return f"{self.project.title} Image"
+```
+
+# What is the image model doing
+
+But since we can have multiple images or no images, we don't know how many we're going to have. We need to make a new model that will store images for our individual project. That way we can have multiple of them linked to the project. Now, the first thing we need to do for each of our images is we need to understand what project they're associated with.
+
+Now, unlike our tags, one project image won't exist for multiple different projects. It's just one project image exists for one project, right? So this project can have multiple images, but this image can only be associated with one project. So in that case, we use the foreign key. Now what this means is that we always have a single project for our individual images.
+
+Now I know I've repeated that like five times. So I'm just trying to be specific here. And what we do is we specify that we're gonna have a foreign key with the project model, and then the related name is the field that will exist on this project that stores all of the different images.
+
+So on my project, I'll be able to access images and it will give me all of these different image models. Now what on delete specifies that if this project that we're linked to were to be deleted, we should delete all of the images. That's what the cascade means okay. Which means delete all of the different images that are associated with the project. If that project is to be deleted.
+
+There's some other options here as well, but this is the one that we're going to use. Lastly we have the image field. And this is just specifying where we actually want to store the images within our media directory. Then we have the string and we're good to go 
 
 
 
