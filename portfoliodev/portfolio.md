@@ -25,5 +25,7 @@ Then `cd` into the project, in our case is the `portfolio`, when in the project 
 python3 manage.py startapp main
 ```
 
-Now we can open a text editor and 
+Now we can open a text editor and modify the code. I will use Sublime Text.
+
+
 
