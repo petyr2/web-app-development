@@ -73,7 +73,7 @@ git pull --rebase brings down changes from GitHub and applies your commits on to
 
 Then git push will succeed.
 
-Your entire portfolio/ project is now saved online. 🎉
+Your entire portfolio/ project is now saved online. 
 
 # Next Time You Make Changes
 
@@ -86,3 +86,55 @@ git push
 ```
 
 That keeps your GitHub repo up-to-date.
+
+If you wipe your system, don’t worry. Just clone it back:
+
+```
+git clone https://github.com/yourusername/portfolio.git
+cd portfolio
+pip install -r requirements.txt
+python manage.py runserver
+```
+# ADDITIONAL INFO
+
+# If you just want to reuse the existing remote
+
+Check what remote is set:
+
+```
+git remote -v
+```
+
+You should see something like:
+
+```
+origin  https://github.com/petyr2/web-app-development.git (fetch)
+origin  https://github.com/petyr2/web-app-development.git (push)
+```
+
+If it already points to the correct GitHub repo, you don’t need to add it again.
+
+You can skip git remote add origin ... and just push with:
+
+```
+git push -u origin main
+```
+# If the remote is wrong and you want to replace it
+
+Remove the existing one:
+
+```
+git remote remove origin
+```
+
+Then add the correct one:
+
+```
+git remote add origin https://github.com/petyr2/web-app-development.git
+```
+
+And push:
+
+```
+git push -u origin main
+```
