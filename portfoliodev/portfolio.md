@@ -222,7 +222,11 @@ portfolio.html
 elevator_pitch.html
 contacts.html
 ```
+Code for the HTML files above is in the portfolio file somewhere on the left side 
 
+So now we have the URL patterns inside of urls.py. However, what we need to do is link URLs from our main Django project to this URLs file. Might seem a little bit weird, but the idea is that we have this main URLs file. Let me get rid of this comment so we can actually read what's inside of here. This file here specifies the root URLs for our project.
+
+Then, what we can do is pass or forward the URL into a different app that we have in our Django kind of application or project. So let's look at how we do this. Well, to do this here we're going to specify another path as shown in the code in the `portfolio/portfolio/urls.py` on the left side
 
 
 
