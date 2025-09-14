@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--
+        Title block (Jinja): child templates can override this block to set the page title.
+        If not overridden, the default text "My Website" is used.
+    -->
+    <title>{% block title %}My Website{% endblock %}</title>
+
+    <style>
+        /* ==================================================
+           Global / layout styles
+           - Make the document full-height and use flexbox so the
+             header (nav) sits at the top, the footer at the bottom,
+             and the `.container` expands to fill the available space.
+           ================================================== */
+        html, body {
+            height: 100%;               /* let body fill viewport height */
+            margin: 0;                  /* removes default page margins */
+            font-family: Arial, sans-serif; /* readable fallback font */
+            display: flex;              /* enable flex layout on body */
+            flex-direction: column;     /* stack header -> content -> footer */
+        }
+
+        /* --------- Navigation -------- */
+        /* Simple, dark translucent nav bar */
+        nav {
+            background: rgba(0, 0, 0, 0.85); /* translucent black */
+            padding: 12px 20px;               /* spacing inside nav */
+        }
+
+        /* horizontal list for links */
+        nav ul {
+            list-style: none; /* remove bullets */
+            display: flex;    /* lay out list items horizontally */
+            gap: 25px;        /* space between items */
+            margin: 0;        /* reset default ul margin */
+            padding: 0;       /* reset default ul padding */
+        }
+
+        /* link appearance */
+        nav ul li a {
+            color: white;            /* link color */
+            text-decoration: none;   /* remove underline */
+            font-weight: bold;       /* emphasis */
+            padding: 6px 12px;       /* click target area */
+            border-radius: 5px;      /* rounded corners for hover/active */
+            transition: 0.3s;        /* smooth hover transitions */
+        }
+
+        /* subtle hover highlight */
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* active link style (set via the "active" class) */
+        nav ul li a.active {
+            background: #007BFF; /* blue badge to show current page */
+        }
+
+        /* --------- Page container -------- */
+        .container {
+            flex: 1;                 /* makes container grow to fill remaining space */
+            padding: 40px;          /* inner spacing */
+            margin: 30px auto;      /* center the container horizontally with top/bottom margin */
+            max-width: 900px;       /* page content width limit */
+            border-radius: 12px;    /* rounded corners */
+            background: rgba(0,0,0,0.3); /* semi-transparent overlay for readability over gradients */
+        }
+
+        /* --------- Footer -------- */
+        footer {
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #00CFFF; /* link color inside footer */
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline; /* visible hover affordance */
+        }
+
+        /* --------- Gradient Backgrounds per page -------- */
+        /* These classes are intended to be added to the <body> (via the page_class block)
+           so each page can have its own background and readable text color. */
+        .home-page {
+            background: linear-gradient(135deg, #0D1B2A, #1B263B);
+            color: #E0E1DD; /* text color tuned for contrast */
+        }
+
+        .bio-page {
+            background: linear-gradient(135deg, #1B4332, #081C15);
+            color: #D8F3DC;
+        }
+
+        .myportfolio-page {
+            background: linear-gradient(135deg, #2B2D42, #1C1C1C);
+            color: #EDF2F4;
+        }
+
+        .pitch-page {
+            background: linear-gradient(135deg, #5C1A1B, #3D0C11);
+            color: #FFD700;
+        }
+    </style>
+</head>
+
+<body class="{% block page_class %}{% endblock %}">
+    <!--
+        The `page_class` block is a convenient place for child templates to output
+        a class name such as "home-page" or "bio-page" so the correct gradient
+        background and text color are applied.
+        Example in a child template:
+            
+    -->
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <!--
+                Each link uses Flask's url_for to generate URLs based on route names.
+                The view function should pass an `active` variable to the template
+                (e.g. active='home') so the correct link gets the `active` class.
+            -->
+            <li><a href="{{ url_for('home') }}" class="{% if active == 'home' %}active{% endif %}">Home</a></li>
+            <li><a href="{{ url_for('page', bio='me') }}" class="{% if active == 'bio' %}active{% endif %}">Bio</a></li>
+            <li><a href="{{ url_for('pro') }}" class="{% if active == 'my portfolio' %}active{% endif %}">my portfolio</a></li>
+            <li><a href="{{ url_for('pit') }}" class="{% if active == 'pitch' %}active{% endif %}">Pitch</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main content container -->
+    <div class="container">
+        <!--
+            The `content` block is where page-specific markup goes. Child templates
+            will override this block to provide the page's HTML (text, images, forms, etc.).
+        -->
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Footer with contact info -->
+    <footer>
+        <h4>Contact Info</h4>
+        <p>
+            📧 Email: addevpm@gmail.com <br>
+            🌐 LinkedIn: <a href="https://www.linkedin.com/in/peter-mucheru-0079362a5/" target="_blank">linkedin.com/in/peter-mucheru</a> <br>
+            💻 GitHub: <a href="https://github.com/petyr2" target="_blank">github.com/petyr2</a>
+        </p>
+    </footer>
+</body>
+</html>
+
+
