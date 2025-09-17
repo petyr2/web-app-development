@@ -19,6 +19,10 @@ def pro():
 def pit():
 	return render_template("pitch.html")
 
+@app.route("/info")
+def info():
+	return render_template("contacts.html")
+
 if __name__ =="__main__":
 
 	app.run()
