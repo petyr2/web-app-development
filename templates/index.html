@@ -6,16 +6,40 @@
 
 {% block content %}
 <section class="homepage">
-    <h1>Welcome To My Personal Website you are now at the home page</h1>
-    <h2>Mucheru Peter</h2>
-    <p>
-        I’m an aspiring cybersecurity professional and telecommunications engineer with a strong foundation in networking, system security, and Flask web development. 
-        <br>
-        <br>
-        Passionate about solving real-world problems, I combine hands-on experience in penetration testing and web projects with continuous learning to build secure and practical digital solutions.
-    </p>
+    <div class="hero-container">
+        <div class="hero-text">
+            <h1>Welcome To My Personal Website — you are now at the home page</h1>
+            <h2>Mucheru Peter</h2>
+            <p>
+                I’m an aspiring cybersecurity professional and telecommunications engineer with a strong foundation in networking, system security, and Flask web development.
+                <br><br>
+                Passionate about solving real-world problems, I combine hands-on experience in penetration testing and web projects with continuous learning to build secure and practical digital solutions.
+            </p>
+            <a href="{{ url_for('portfolio') }}" class="btn">View My Projects</a>
+        </div>
+        <div class="hero-image">
+            <img src="{{ url_for('static', filename='images/hero-placeholder.png') }}" alt="Cybersecurity Graphic">
+        </div>
+    </div>
 </section>
+
+<div class="terminal">
+    <div class="terminal-header">
+        <span>user@peter:~$</span>
+    </div>
+    <script src="{{ url_for('static', filename='terminal.js') }}"></script>
+
+   
+    <div class="terminal-body">
+        <span class="typed-text" data-text="$ nmap -sV 192.168.1.1"></span><br>
+        <span class="typed-text" data-text="Starting Nmap 7.91 ( https://nmap.org ) at 2025-09-17 20:30"></span><br>
+        <span class="typed-text" data-text="$ python3 exploit.py"></span><br>
+        <span class="typed-text" data-text="Connecting to target... Success!"></span><br>
+        <span class="typed-text" data-text="$ git clone https://github.com/petyr2/web-app-development"></span>
+    </div>
+    <span class="cursor">|</span>
+</div>
+
+
+
 {% endblock %}
-
-
-

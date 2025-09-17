@@ -11,8 +11,8 @@ def home():
 def page():
 	return render_template("bio.html")
 
-@app.route("/my portfolio")
-def pro():
+@app.route("/portfolio")
+def portfolio():
 	return render_template("projects.html")
 
 @app.route("/pitch")

@@ -5,17 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Portfolio{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body class="{% block page_class %}{% endblock %}">
   <div class="wrapper">
     <header>
-      <nav>
-        <ul>
+      <nav class="navbar">
+        <div class="logo">PEMUCH</div>
+        <ul class="nav-links">
           <li><a href="{{ url_for('home') }}">Home</a></li>
           <li><a href="{{ url_for('page') }}">Bio</a></li>
-          <li><a href="{{ url_for('pro') }}">My Portfolio</a></li>
+          <li><a href="{{ url_for('portfolio') }}">My Portfolio</a></li>
           <li><a href="{{ url_for('pit') }}">Pitch</a></li>
-          <li><a href="{{url_for('info')}}">info</a></li>
+          <li><a href="{{ url_for('info') }}">Info</a></li>
         </ul>
       </nav>
     </header>
@@ -24,8 +26,16 @@
       {% block content %}{% endblock %}
     </main>
 
-    <!-- Footer appears only if a block is provided -->
-    {% block footer %}{% endblock %}
+   
+    <br>
+
+    <footer>
+      <p>© 2025 Peter Mucheru | Built with Flask</p>
+      <div class="socials">
+        <a href="https://github.com/petyr2" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/peter-mucheru" target="_blank">LinkedIn</a>
+      </div>
+    </footer>
   </div>
 </body>
 </html>
