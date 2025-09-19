@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Portfolio{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
 </head>
 <body class="{% block page_class %}{% endblock %}">
   <div class="wrapper">
@@ -30,11 +30,19 @@
     <br>
 
     <footer>
-      <p>© 2025 Peter Mucheru | Built with Flask</p>
-      <div class="socials">
-        <a href="https://github.com/petyr2" target="_blank">GitHub</a>
-        <a href="https://linkedin.com/in/peter-mucheru" target="_blank">LinkedIn</a>
-      </div>
+      <p>© 2025 This is my portfolio </p>
+      <<div class="socials">
+  <!-- GitHub -->
+  <a href="https://github.com/petyr2" target="_blank">
+    <img src="{{ url_for('static', filename='images/github-icon.svg') }}" alt="GitHub" width="30" height="30">
+  </a>
+
+  <!-- LinkedIn -->
+  <a href="https://www.linkedin.com/in/your-linkedin-username/" target="_blank">
+    <img src="{{ url_for('static', filename='images/download.png') }}" alt="LinkedIn" width="30" height="30">
+  </a>
+</div>
+
     </footer>
   </div>
 </body>

@@ -299,3 +299,39 @@ footer {
 }
 
 
+/* ===== Container for bio section ===== */
+.bio-container {
+    display: flex;                 /* Arrange children (images + text) in a row */
+    justify-content: center;       /* Center content horizontally */
+                                   /* Center content vertically */
+    gap: 20px;                     /* Space between left image, text, and right image */
+    margin: 40px auto;             /* Top/bottom margin and center container horizontally */
+    flex-wrap: wrap;               /* Allows wrapping on smaller screens */
+}
+
+/* ===== Styling for both images ===== */
+.bio-image {
+    width: 200px;                  /* Set a fixed width for images */
+    height: auto;                  /* Keep image aspect ratio */
+    border-radius: 12px;           /* Rounded corners for smooth look */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Soft shadow around images */
+    flex-shrink: 0;                /* Prevent images from shrinking smaller than width */
+}
+
+/* Optional: Different classes for left/right images */
+img {
+    /* You can add extra styles for left image if needed */
+    align-items: left;
+}
+
+img {
+    /* You can add extra styles for right image if needed */
+    align-items: right;
+}
+
+/* ===== Center text styling ===== */
+.bio-text {
+    max-width: 600px;              /* Limit width of the text for readability */
+    text-align: justify;           /* Justify the text nicely */
+    color: #E0E1DD;                /* Match your portfolio theme color */
+}
