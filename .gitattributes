@@ -3,4 +3,6 @@
 
 /templates/* linguist-vendored
 /static/* linguist-vendored
+main.py linguist-vendored
+
 
