@@ -8,16 +8,28 @@
     <div class="pitch-container">
         <h2>Pitch</h2>
         <p>
-            I am Peter Mucheru, an aspiring cybersecurity professional and telecommunications engineer with a strong foundation in networking, system security, and backend web development using Flask.
+            Hi, my name is Peter Mucheru.
+            <br>
+            I have a background in cybersecurity and telecommunications engineering, with experience in networking, system security, and web development.
             <br><br>
-            My goal is to help organizations strengthen their digital infrastructure by combining hands-on penetration testing experience with practical engineering skills like electrical installations and CCTV systems.
+           My skills are network security, ethical hacking, and backend development.
             <br><br>
-            With a focus on security-aware development and innovative problem-solving, I bring both technical depth and versatility, positioning myself as a future expert ready to protect and enhance modern technology environments.
+            What makes me different is that I combine digital security knowledge with practical engineering skills like electrical installations and CCTV systems, which means I can handle both online and physical security needs.
+
+            <br><br>
+            By bringing these skills together, I help organizations protect their systems, prevent risks, and make their work safer and easier.
+
+            <br><br>
+            I believe my problem-solving mindset and adaptability make me the right person to deliver trusted security solutions.
         </p>
 
         <div class="pitch-video-placeholder">
-            <img src="{{ url_for('static', filename='images/video-placeholder.png') }}" alt="Pitch Video Coming Soon">
+            <video width="640" height="360" controls>
+                <source src="{{ url_for('static', filename='videos/pitch2.mp4') }}" type="video/mp4">
+                    Your browser does not support the video tag.
+            </video>
         </div>
+
     </div>
 </section>
 {% endblock %}
